@@ -33,25 +33,39 @@
   <!-- Main Body -->
   <section class="primary-body">
 
-    <h2 class="body-header">
-      Home Feed
-    </h2>
-    <script>
+      <h2 class="body-header">
+        Home Feed
+      </h2>
 
-    $(document).ready(function(){
-      var $body = $('body').find("section");
-      var index = streams.home.length - 1;
-      while(index >= 0){
-        var tweet = streams.home[index];
-        var $tweet = $('<div></div>');
-        $tweet.text('@' + tweet.user + ': ' + tweet.message);
-        $tweet.appendTo($body);
-        index -= 1;
-      }
 
-    });
 
-    </script>
+      <script>
+
+      $(document).ready(function(){
+        var $body = $('body').find("section");
+        var index = streams.home.length - 1;
+        while(index >= 0){
+          // Get tweet data
+          var tweet = streams.home[index];
+
+          // Create nodes for tweet
+          var $tweet = $("<span class='tweet-container'></span>");
+          var $handle = $("<div class='tweet-handle'></div>");
+          var $text = $("<div class='tweet-text'></div>");
+
+          // Combine nodes and add to body
+          $handle.text('@' + tweet.user);
+          $text.text(tweet.message);
+          $handle.appendTo($tweet);
+          $text.appendTo($tweet);
+          $tweet.appendTo($body);
+          index -= 1;
+        }
+
+      });
+
+      </script>
+
   </section>
 
   <!-- Footer -->
@@ -62,7 +76,7 @@
 
     <nav class="nav">
       <ul>
-         <li><a href="index.html">Home</a></li>
+        <li><a href="index.html">Home</a></li>
       </ul>
     </nav>
 
