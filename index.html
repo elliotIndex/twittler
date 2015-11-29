@@ -33,38 +33,44 @@
   <!-- Main Body -->
   <section class="primary-body">
 
-      <h2 class="body-header">
-        Home Feed
-      </h2>
+    <h2 class="body-header">
+      Home Feed
+    </h2>
 
 
 
-      <script>
+    <script>
 
-      $(document).ready(function(){
-        var $body = $('body').find("section");
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          // Get tweet data
-          var tweet = streams.home[index];
+    function newTweet() {
+      var $body = $('body').find("section");
+      var index = streams.home.length - 1;
+      var numTweets = $('.tweet-container').length;
 
-          // Create nodes for tweet
-          var $tweet = $("<span class='tweet-container'></span>");
-          var $handle = $("<div class='tweet-handle'></div>");
-          var $text = $("<div class='tweet-text'></div>");
+      while (index >= numTweets) {
+        // Get tweet data
+        var tweet = streams.home[index];
 
-          // Combine nodes and add to body
-          $handle.text('@' + tweet.user);
-          $text.text(tweet.message);
-          $handle.appendTo($tweet);
-          $text.appendTo($tweet);
-          $tweet.appendTo($body);
-          index -= 1;
-        }
+        // Create nodes for tweet
+        var $tweet = $("<span class='tweet-container'></span>");
+        var $handle = $("<div class='tweet-handle'></div>");
+        var $text = $("<div class='tweet-text'></div>");
 
-      });
+        // Combine nodes and add to body
+        $handle.text('@' + tweet.user);
+        $text.text(tweet.message);
+        $handle.appendTo($tweet);
+        $text.appendTo($tweet);
+        $tweet.appendTo($body);
+        $body.insertBefore($body.firstChild, $tweet);
+        index -= 1;
+      }
+    }
 
-      </script>
+    $(document).ready(newTweet);
+
+    setInterval(newTweet, 2000);
+
+    </script>
 
   </section>
 
