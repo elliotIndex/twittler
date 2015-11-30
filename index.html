@@ -37,38 +37,49 @@
       Home Feed
     </h2>
 
+    <ul class="tweet-list"></ul>
 
 
     <script>
 
-    function newTweet() {
-      var $body = $('body').find("section");
-      var index = streams.home.length - 1;
-      var numTweets = $('.tweet-container').length;
-
-      while (index >= numTweets) {
-        // Get tweet data
-        var tweet = streams.home[index];
-
-        // Create nodes for tweet
-        var $tweet = $("<span class='tweet-container'></span>");
-        var $handle = $("<div class='tweet-handle'></div>");
-        var $text = $("<div class='tweet-text'></div>");
-
-        // Combine nodes and add to body
-        $handle.text('@' + tweet.user);
-        $text.text(tweet.message);
-        $handle.appendTo($tweet);
-        $text.appendTo($tweet);
-        $tweet.appendTo($body);
-        $body.insertBefore($body.firstChild, $tweet);
-        index -= 1;
+    function refreshFeed() {
+      var $body = $('.tweet-list');
+      console.log($body);
+      clearFeed($body);
+      var totalNumTweets = streams.home.length
+      var index = totalNumTweets - 1;
+      for(; index >= 0 && index > totalNumTweets - 15; index--) {
+        newTweet = makeTweet(index);
+        newTweet.appendTo($body);
       }
     }
 
-    $(document).ready(newTweet);
+    function makeTweet(index) {
+      var tweet = streams.home[index];
 
-    setInterval(newTweet, 2000);
+      // Create nodes for tweet
+      var $tweet = $("<li class='tweet-container'></li>");
+      var $handle = $("<div class='tweet-handle'></div>");
+      var $text = $("<div class='tweet-text'></div>");
+
+      // Combine nodes
+      $handle.text('@' + tweet.user);
+      $text.text(tweet.message);
+      $handle.appendTo($tweet);
+      $text.appendTo($tweet);
+
+      return $tweet;
+    }
+
+    function clearFeed(nodeToClear) {
+      while (nodeToClear[0].firstChild) {
+        nodeToClear[0].removeChild(nodeToClear[0].firstChild);
+      }
+    }
+
+    $(document).ready(refreshFeed);
+
+    setInterval(refreshFeed, 500);
 
     </script>
 
