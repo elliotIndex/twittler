@@ -50,9 +50,9 @@
 
     <script>
 
+
     function refreshFeed() {
       var $body = $('.tweet-list');
-      console.log($body);
       clearFeed($body);
       var totalNumTweets = streams.home.length
       var index = totalNumTweets - 1;
@@ -85,7 +85,11 @@
       }
     }
 
-    $(document).ready(refreshFeed);
+    $(document).ready(function() {
+      console.log(currentUser);
+      //updateProfile();
+      //refreshProfileFeed();
+    });
 
     setInterval(refreshFeed, 200);
 

@@ -50,9 +50,13 @@
 
     <script>
 
+    // function updateProfile() {
+    //   currentUser = this.text;
+    //   console.log(currentUser);
+    // }
+
     function refreshFeed() {
       var $body = $('.tweet-list');
-      console.log($body);
       clearFeed($body);
       var totalNumTweets = streams.home.length
       var index = totalNumTweets - 1;
@@ -67,7 +71,7 @@
 
       // Create nodes for tweet
       var $tweet = $("<li class='tweet-container'></li>");
-      var $handle = $("<a href='otherUser.html' class='tweet-handle'></a>");
+      var $handle = $("<a href='otherUser.html' onclick='currentUser = this.text' class='tweet-handle'></a>");
       var $text = $("<div class='tweet-text'></div>");
 
       // Combine nodes
@@ -80,13 +84,19 @@
       return $tweet;
     }
 
+    $(".tweet-handle").click(function() {
+      alert(this.text); // or alert($(this).attr('id'));
+    });
+
     function clearFeed(nodeToClear) {
       while (nodeToClear[0].firstChild) {
         nodeToClear[0].removeChild(nodeToClear[0].firstChild);
       }
     }
 
+    var currentUser = "Twittler";
     $(document).ready(refreshFeed);
+
 
     setInterval(refreshFeed, 200);
 
