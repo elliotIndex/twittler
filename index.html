@@ -19,7 +19,7 @@
   <header class="primary-header container group">
 
     <h1 class="logo">
-      <a href="index.html">twittler</a>
+      <a id="main-logo" href="index.html">twittler</a>
     </h1>
 
     <nav class="nav primary-nav">
@@ -50,28 +50,26 @@
 
     <script>
 
-    // function updateProfile() {
-    //   currentUser = this.text;
-    //   console.log(currentUser);
-    // }
+
 
     function refreshFeed() {
+      var home = (currentUser == "Twittler");
       var $body = $('.tweet-list');
       clearFeed($body);
-      var totalNumTweets = streams.home.length
-      var index = totalNumTweets - 1;
-      for(; index >= 0 && index > totalNumTweets - 15; index--) {
-        newTweet = makeTweet(index);
+      var stream = home ? streams.home : streams.users[currentUser];
+      var totalNumTweets = stream.length
+      for(var index = totalNumTweets - 1; index >= 0 && index > totalNumTweets - 15; index--) {
+        newTweet = makeTweet(stream, index);
         newTweet.appendTo($body);
       }
     }
 
-    function makeTweet(index) {
-      var tweet = streams.home[index];
+    function makeTweet(stream, index) {
 
+      var tweet = stream[index];
       // Create nodes for tweet
       var $tweet = $("<li class='tweet-container'></li>");
-      var $handle = $("<a href='otherUser.html' onclick='currentUser = this.text' class='tweet-handle'></a>");
+      var $handle = $("<a onclick='updateProfile.apply(this)' class='tweet-handle'></a>");
       var $text = $("<div class='tweet-text'></div>");
 
       // Combine nodes
@@ -84,9 +82,11 @@
       return $tweet;
     }
 
-    $(".tweet-handle").click(function() {
-      alert(this.text); // or alert($(this).attr('id'));
-    });
+    function updateProfile() {
+      currentUser = this.text.slice(1)
+      $('#main-logo').text(currentUser);
+    }
+
 
     function clearFeed(nodeToClear) {
       while (nodeToClear[0].firstChild) {
@@ -94,8 +94,12 @@
       }
     }
 
+
     var currentUser = "Twittler";
+    var home = true;
+    var autoUpdate = false;
     $(document).ready(refreshFeed);
+
 
 
     setInterval(refreshFeed, 200);
