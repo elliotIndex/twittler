@@ -67,7 +67,7 @@ body {
   background: #9ad3de;
   background: -webkit-linear-gradient(to right, #89bdd3, #9ad3de);
   background: -moz-linear-gradient(to right, #89bdd3, #9ad3de);
-  background: linear-gradient(to right, #89bdd3, #9ad3de);
+  background: linear-gradient(to right, #89bdd3, #89bdFF);
   color: #e3e3e3;
   font: 300 16px/22px "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -268,7 +268,7 @@ h1, h3, h4, h5, p {
   width: 200px;
   margin: 7px 20px;
   font-size: 20px;
-  color: rgb(50, 59, 200);
+  color: #89eeee;
   position: relative;
   left: 0;
 }
