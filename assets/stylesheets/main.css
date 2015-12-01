@@ -255,9 +255,9 @@ h1, h3, h4, h5, p {
   margin: 5px 10px;
   padding: 1px;
   width: auto;
-  height: 40px;
+  height: auto;
   border: 1px solid #FFF;
-  border-radius: 15px;
+  border-radius: 30px;
   text-align: left;
   background: rgba(0, 0, 0, 0.3);;
 
@@ -277,11 +277,17 @@ h1, h3, h4, h5, p {
 .primary-body .tweet-text {
   color: #EFF;
   display: inline;
-  left: 0;
-  right: 0;
   width: 400px;
   padding-left: 20px;
   text-align: center;
+}
+
+.primary-body .time-stamp {
+  color: rgba(255, 255, 255, 0.5);;
+  float: right;
+  margin: 7px 8px 0 0;
+  font-size: 12px;
+
 }
 
 /*
