@@ -15,7 +15,7 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+time, mark, audio, video, btn {
   margin: 0;
   padding: 0;
   border: 0;
@@ -222,7 +222,8 @@ h1, h3, h4, h5, p {
   margin: 10px 0 50px 20%;
   padding-bottom: 22px;
   text-align: left;
-  background-color: rgba(127, 191, 63, 0.1);
+  background-color: rgba(220, 220, 250, 0.1);
+
 }
 
 /*
@@ -236,7 +237,7 @@ h1, h3, h4, h5, p {
   margin: 10px 10px 20px 52px;
   width: auto;
   border-bottom: 1px solid #FFF;
-
+  cursor: default;
 }
 
 /*
@@ -270,6 +271,7 @@ h1, h3, h4, h5, p {
   color: #89eeee;
   position: relative;
   left: 0;
+  cursor: pointer;
 }
 
 .primary-body .tweet-text {
@@ -288,40 +290,32 @@ h1, h3, h4, h5, p {
   ========================================
 */
 
-.primary-body btn {
+.primary-button {
   color: #fff;
   display: inline-block;
   float: right;
   margin: 20px 30px;
   //border: 1px solid #666;
-  border-radius: 3px;
+  border-radius: 20px;
   padding: 3px 10px;
-  background: -webkit-linear-gradient(to right, #9ad3de, #6aa3ae);
-  background: -moz-linear-gradient(to right, #9ad3de, #6aa3ae);
-  background: linear-gradient(to bottom,  #9ad3de, #6aa3ae); /* W3C */
-  background: linear-gradient(to bottom,  rgba(200,200,200,.3), rgba(50,50,50,.3)); /* W3C */
-
-  //box-shadow: 0 0 10px grey;
+  background: -webkit-linear-gradient(to bottom,  rgba(100,100,100,.3), rgba(0,0,0,.3));
+  background: -moz-linear-gradient(to bottom,  rgba(100,100,100,.3), rgba(0,0,0,.3));
+  background: linear-gradient(to bottom,  rgba(100,100,100,.3), rgba(0,0,0,.3)); /* W3C */
+  cursor: pointer;
+  //box-shadow: 0 0 10px gold;
 }
 
-.primary-body btn:hover, .pressed-down {
+.primary-button:hover  {
   color: #ddd;
-  background: -webkit-linear-gradient(to right, #6aa3ae, #9ad3de);
-  background: -moz-linear-gradient(to right, #6aa3ae, #9ad3de);
-  background: linear-gradient(to bottom,  #6aa3ae, #9ad3de); /* W3C */
-  background: linear-gradient(to bottom,  rgba(50,50,50,.4), rgba(200,200,200,.4)); /* W3C */
-
-  box-shadow: none;
+  background: -webkit-linear-gradient(to bottom,  rgba(0,0,0,.3), rgba(100,100,100,.3));
+  background: -moz-linear-gradient(to bottom,  rgba(0,0,0,.3), rgba(100,100,100,.3));
+  background: linear-gradient(to bottom,  rgba(0,0,0,.3), rgba(100,100,100,.3)); /* W3C */
 
 }
 .auto-update {
-
+  margin-right: 50px;
 }
 
-.refresh {
-  margin: 10px 20px;
-
-}
 
 /*
   ========================================

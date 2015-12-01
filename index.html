@@ -37,11 +37,11 @@
       Home Feed
     </h2>
 
-    <btn class="auto-update">
+    <btn class="auto-update primary-button">
       Auto Update
     </btn>
 
-    <btn class="refresh">
+    <btn class="refresh primary-button" onclick="refreshBtn()">
       Refresh
     </btn>
 
@@ -85,6 +85,7 @@
     function updateProfile() {
       currentUser = this.text.slice(1)
       $('#main-logo').text(currentUser);
+      refreshFeed();
     }
 
 
@@ -94,15 +95,27 @@
       }
     }
 
+    // Button Hanlders
+    function refreshBtn() {
+      var $refresh = $(".refresh")
+      $refresh.css( "opacity", 0.1 );
+      refreshFeed();
+      $refresh.animate({
+        opacity: 1,
+      }, 500);
+    }
 
+    function autoUpdateBtn() {
+
+    }
+
+    // Main Script
     var currentUser = "Twittler";
     var home = true;
     var autoUpdate = false;
+
     $(document).ready(refreshFeed);
-
-
-
-    setInterval(refreshFeed, 200);
+    if (autoUpdate) { setInterval(refreshFeed, 200); };
 
     </script>
 
