@@ -312,6 +312,20 @@ h1, h3, h4, h5, p {
   background: linear-gradient(to bottom,  rgba(0,0,0,.3), rgba(100,100,100,.3)); /* W3C */
 
 }
+
+.pressed {
+  color: #FFF;
+  background: -webkit-linear-gradient(to bottom,  rgba(0,0,0,.3), rgba(100,100,100,.3));
+  background: -moz-linear-gradient(to bottom,  rgba(0,0,0,.3), rgba(100,100,100,.3));
+  background: linear-gradient(to bottom,  rgba(50,250,50,.3), rgba(10,200,10,.5)); /* W3C */
+}
+
+.pressed:hover {
+  color: #FFF;
+  background: -webkit-linear-gradient(to bottom,  rgba(0,0,0,.3), rgba(100,100,100,.3));
+  background: -moz-linear-gradient(to bottom,  rgba(0,0,0,.3), rgba(100,100,100,.3));
+  background: linear-gradient(to bottom,  rgba(0,250,0,.3), rgba(100,250,100,.3)); /* W3C */
+}
 .auto-update {
   margin-right: 50px;
 }
