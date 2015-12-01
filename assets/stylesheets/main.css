@@ -217,12 +217,11 @@ h1, h3, h4, h5, p {
 .primary-body {
   display: inline-block;
   width: 800px;
-  //height: auto;
   border: 1px solid #FFF;
   border-radius: 30px;
   margin: 10px 0 50px 20%;
   padding-bottom: 22px;
-  text-align: center;
+  text-align: left;
   background-color: rgba(127, 191, 63, 0.1);
 }
 
@@ -233,8 +232,8 @@ h1, h3, h4, h5, p {
 */
 .body-header {
   display: inline-block;
-  padding: 1px 50px;
-  margin: 10px 0 20px 0;
+  padding: 1px 80px 1px 10px;
+  margin: 10px 10px 20px 52px;
   width: auto;
   border-bottom: 1px solid #FFF;
 
@@ -290,15 +289,37 @@ h1, h3, h4, h5, p {
 */
 
 .primary-body btn {
-  background-color: #aaa;
+  color: #fff;
   display: inline-block;
+  float: right;
+  margin: 20px 30px;
+  //border: 1px solid #666;
+  border-radius: 3px;
+  padding: 3px 10px;
+  background: -webkit-linear-gradient(to right, #9ad3de, #6aa3ae);
+  background: -moz-linear-gradient(to right, #9ad3de, #6aa3ae);
+  background: linear-gradient(to bottom,  #9ad3de, #6aa3ae); /* W3C */
+  background: linear-gradient(to bottom,  rgba(200,200,200,.3), rgba(50,50,50,.3)); /* W3C */
+
+  //box-shadow: 0 0 10px grey;
 }
 
+.primary-body btn:hover, .pressed-down {
+  color: #ddd;
+  background: -webkit-linear-gradient(to right, #6aa3ae, #9ad3de);
+  background: -moz-linear-gradient(to right, #6aa3ae, #9ad3de);
+  background: linear-gradient(to bottom,  #6aa3ae, #9ad3de); /* W3C */
+  background: linear-gradient(to bottom,  rgba(50,50,50,.4), rgba(200,200,200,.4)); /* W3C */
+
+  box-shadow: none;
+
+}
 .auto-update {
 
 }
 
 .refresh {
+  margin: 10px 20px;
 
 }
 
