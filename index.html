@@ -33,19 +33,24 @@
 
   <!-- Main Body -->
   <section class="primary-body">
+    <section class="body-upper">
+      <h2 class="body-header">
+        Home Feed
+      </h2>
 
-    <h2 class="body-header">
-      Home Feed
-    </h2>
+      <btn class="auto-update primary-button" onclick="autoUpdateBtn()">
+        Auto Update
+      </btn>
 
-    <btn class="auto-update primary-button" onclick="autoUpdateBtn()">
-      Auto Update
-    </btn>
+      <btn class="refresh primary-button" onclick="refreshBtn()">
+        Refresh
+      </btn>
+    </section>
 
-    <btn class="refresh primary-button" onclick="refreshBtn()">
-      Refresh
-    </btn>
-
+      <div class="user-tweet-area">
+        <div class="tweet-img"></div>
+        <input class="tweet-input" position="inline"></input>
+      </div>
     <ul class="tweet-list"></ul>
 
 

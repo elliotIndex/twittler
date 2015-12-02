@@ -216,14 +216,17 @@ h1, h3, h4, h5, p {
 
 .primary-body {
   display: inline-block;
-  width: 800px;
+  width: 980px;
   border: 1px solid #FFF;
   border-radius: 30px;
-  margin: 10px 0 50px 20%;
+  margin: 10px 0 50px 12%;
   padding-bottom: 22px;
   text-align: left;
   background-color: rgba(220, 220, 250, 0.1);
+}
 
+.body-upper {
+  display: block;
 }
 
 /*
@@ -252,15 +255,19 @@ h1, h3, h4, h5, p {
 
 .primary-body .tweet-container {
   display: block;
-  margin: 5px 10px;
+  margin: 5px 45px;
   padding: 1px;
-  width: auto;
+  width: 880px;
   height: auto;
   border: 1px solid #FFF;
   border-radius: 30px;
   text-align: left;
-  background: rgba(0, 0, 0, 0.3);;
+  background: rgba(0, 0, 0, 0.3);
+  vertical-align: middle;
+}
 
+.tweet-container:first-child {
+  margin-top: 30px;
 }
 
 .primary-body .tweet-handle {
@@ -336,7 +343,31 @@ h1, h3, h4, h5, p {
   margin-right: 50px;
 }
 
+/*
+  ========================================
+  User Tweets
+  ========================================
+*/
+.user-tweet-area {
+  display: block;
+  height: 50px;
+  margin: 20px 40px 30px 40px;
+  border: 1px solid #EEE;
+  border-radius: 50px;
+}
 
+.tweet-input {
+  display: none;
+}
+.tweet-img {
+  width: 150px;
+  height: 150px;
+  background-image: url("http://minimalmonkey.com/lab/css3-animations/twitter-bird-sprite.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  overflow: hidden;
+  display: inline;
+}
 /*
   ========================================
   Navigation
