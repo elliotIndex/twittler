@@ -255,7 +255,7 @@ h1, h3, h4, h5, p {
 
 .primary-body .tweet-container {
   display: block;
-  margin: 5px 45px;
+  margin: 5px 45px 5px 50px;
   padding: 1px;
   width: 880px;
   height: auto;
@@ -357,17 +357,27 @@ h1, h3, h4, h5, p {
 }
 
 .tweet-input {
-  display: none;
+  /*display: none;*/
+  display: inline-block;
 }
+
 .tweet-img {
-  width: 150px;
-  height: 150px;
-  background-image: url("http://minimalmonkey.com/lab/css3-animations/twitter-bird-sprite.png");
+  display: inline-block;
+  content: "";
+  height: 52px;
+  width: 52px;
+  background: url("../images/twitterbirdsprite.png");
   background-repeat: no-repeat;
   background-position: 0 0;
   overflow: hidden;
-  display: inline;
+  margin-left: 15px;
+  background-clip: ;
+  text-indent: -9999;
 }
+
+.tweet-img:hover {
+
+
 /*
   ========================================
   Navigation
