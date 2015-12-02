@@ -48,8 +48,9 @@
     </section>
 
     <div class="user-tweet-area">
-      <div class="tweet-img" alt=""></div>
-      <input class="tweet-input" position="inline"></input>
+      <div class="tweet-img" alt="" onclick="sendTweet()"></div>
+      <input class="tweet-input" type="text" placeholder="What's on your mind?" maxlength="140"></input>
+      <div class="arrow-img" alt="" onclick="sendTweet()"></div>
     </div>
     <ul class="tweet-list"></ul>
 
@@ -119,6 +120,16 @@
       $(".auto-update").toggleClass("pressed");
       autoUpdate = !autoUpdate;
       refresher = autoUpdate ? setInterval(refreshFeed, 200) : clearInterval(refresher);
+    }
+
+    $(".tweet-input").keyup(function(event){
+      if(event.keyCode == 13){
+        $(".arrow-img").click();
+      }
+    });
+
+    function sendTweet() {
+
     }
 
     // Main Script
