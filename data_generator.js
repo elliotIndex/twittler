@@ -1,7 +1,7 @@
 /*
- * NOTE: This file generates fake tweet data, and is not intended to be part of your implementation.
- * You can safely leave this file untouched, and confine your changes to index.html.
- */
+* NOTE: This file generates fake tweet data, and is not intended to be part of your implementation.
+* You can safely leave this file untouched, and confine your changes to index.html.
+*/
 
 // set up data structures
 window.streams = {};
@@ -41,22 +41,13 @@ var randomMessage = function(){
 // generate random tweets on a random schedule
 var generateRandomTweet = function(){
   var tweet = {};
-  tweet.user = randomElement(users);
+  while (!(tweet.user) || tweet.user == "elliotaplant") {
+    tweet.user = randomElement(users); // Only tweet when user wants to
+  }
   tweet.message = randomMessage();
   tweet.created_at = new Date();
   addTweet(tweet);
 };
-
-var userGeneratedTweet = function(inputMessage) {
-  var tweet = {};
-  tweet.user = "elliotaplant";
-  tweet.message = inputMessage;
-  tweet.created_at = new Date();
-  addTweet(tweet);
-}
-var foob = function(text) {
-  alert(text);
-}
 
 for(var i = 0; i < 10; i++){
   generateRandomTweet();
@@ -70,6 +61,8 @@ scheduleNextTweet();
 
 // utility function for letting students add "write a tweet" functionality
 // (note: not used by the rest of this file.)
+var visitor = "elliotaplant";
+
 var writeTweet = function(message){
   if(!visitor){
     throw new Error('set the global visitor property!');
@@ -77,5 +70,6 @@ var writeTweet = function(message){
   var tweet = {};
   tweet.user = visitor;
   tweet.message = message;
+  tweet.created_at = new Date(); // make sure to add a timestamp
   addTweet(tweet);
 };
